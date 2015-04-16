@@ -1,0 +1,9 @@
+node_modules
+logs
+tmp
+shared
+
+.bower_components
+
+.sublime-*
+.tmp
