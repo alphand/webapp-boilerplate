@@ -7,3 +7,5 @@ shared
 
 .sublime-*
 .tmp
+
+*.log
