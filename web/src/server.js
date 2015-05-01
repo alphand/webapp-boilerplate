@@ -1,8 +1,9 @@
 import {Server} from "hapi";
 import React from "react";
 import Router from "react-router";
-import Transmit from "react-transmit";
+// import Transmit from "react-transmit";
 import routes from "views/routes";
+import html from "views/html";
 
 /**
  * Start Hapi server on port 8000.
@@ -31,29 +32,13 @@ server.ext("onPreResponse", (request, reply) => {
   }
 
   Router.run(routes, request.path, (Handler, router) => {
-    Transmit.renderToString(
-      Handler
-    ).then(({reactString, reactData}) => {
-      let output = (
-        `<!doctype html>
-        <html lang="en-us">
-          <head>
-            <meta charset="utf-8">
-            <title>react-isomorphic-starterkit</title>
-            <link rel="shortcut icon" href="/favicon.ico">
-          </head>
-          <body>
-            <div id="react-root">${reactString}</div>
-          </body>
-        </html>`
-      );
 
-      const webserver = process.env.NODE_ENV === "production" ? "" : "//localhost:8080";
-      output = Transmit.injectIntoMarkup(output, reactData, [`${webserver}/dist/client.js`]);
+    let markup = React.renderToString(<Handler/>);
 
-      reply(output);
-    }).catch((error) => {
-      reply(error.stack).type("text/plain").code(500);
-    });
+    console.log("markup", markup, routes);
+    let output = React.renderToStaticMarkup(<Handler />);
+
+    console.log("output", output);
+    reply(output);
   })
 });
