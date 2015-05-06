@@ -7,7 +7,7 @@ class About extends React.Component{
   render(){
     return (
       <Layout>
-        <h1>About Tetoot!</h1>
+        <h1>About oiitt!</h1>
       </Layout>
     );
   }

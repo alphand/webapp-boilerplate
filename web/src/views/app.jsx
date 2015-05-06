@@ -1,5 +1,5 @@
 import React from "react";
-
+import Layout from "views/components/shared/layout";
 class App extends React.Component {
   /**
    * Runs on server and client.
@@ -23,7 +23,9 @@ class App extends React.Component {
 
   render () {
     return (
-        <h1>Hello Keep sekali load donk!</h1>
+      <Layout>
+        <h1>Hello handle feel the works as it should now!</h1>
+      </Layout>
     );
   }
 }
