@@ -23,7 +23,8 @@ config.plugins = [
 config.module = {
   loaders: [
     {include: /\.json$/, loaders: ["json-loader"]},
-    {include: /\.(js|jsx)$/, loaders:  [ "react-hot", "babel-loader?stage=1&optional=runtime"], exclude: /node_modules/}
+    {include: /\.(js|jsx)$/, loaders:  [ "react-hot", "babel-loader?stage=1&optional=runtime"], exclude: /node_modules/},
+    {include: /\.(scss|sass)$/, loaders:[ "style!css!sass?indentedSyntax"]}
   ]
 };
 

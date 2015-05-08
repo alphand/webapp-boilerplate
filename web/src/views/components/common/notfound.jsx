@@ -1,6 +1,4 @@
 import React from "react";
-import Transmit from "react-transmit";
-
 import Layout from "../shared/layout";
 
 class NotFound extends React.Component{
@@ -12,5 +10,5 @@ class NotFound extends React.Component{
     );
   }
 }
-export default Transmit.createContainer(NotFound);
+export default NotFound;
 

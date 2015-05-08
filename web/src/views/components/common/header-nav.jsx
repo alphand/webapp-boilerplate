@@ -1,6 +1,5 @@
 import React from "react";
 import {Link} from "react-router";
-import Transmit from "react-transmit";
 
 class MainNav extends React.Component{
   render(){
@@ -14,4 +13,4 @@ class MainNav extends React.Component{
     );
   }
 }
-export default Transmit.createContainer(MainNav);
+export default MainNav;

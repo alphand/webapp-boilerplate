@@ -1,3 +1,5 @@
+import "./styles/main.scss";
+
 import React from "react";
 import Router from "react-router";
 import Transmit from "react-transmit";
