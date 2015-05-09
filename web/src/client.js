@@ -1,15 +1,17 @@
 import "./styles/main.scss";
+import "./styles/test.css";
 
 import React from "react";
 import Router from "react-router";
-import Transmit from "react-transmit";
+// import Transmit from "react-transmit";
 import routes from "views/routes";
 
 /**
  * Fire-up React Router.
  */
 Router.run(routes, Router.HistoryLocation, (Handler) => {
-  Transmit.render(Handler, {}, document.getElementById("react-root"));
+  // Transmit.render(Handler, {}, document.getElementById("react-root"));
+  React.render(React.createElement(Handler), document.getElementById("react-root"));
 });
 
 /**

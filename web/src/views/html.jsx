@@ -10,7 +10,6 @@ class Html extends React.Component {
         </head>
         <body>
           <div id="react-root" dangerouslySetInnerHTML={{ __html: this.props.markup }} ></div>
-          <script src="http://localhost:8080/dist/client.js"></script>
         </body>
       </html>
     );

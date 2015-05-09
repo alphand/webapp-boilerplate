@@ -1,9 +1,10 @@
 import {Server} from "hapi";
 import React from "react";
 import Router from "react-router";
-import Transmit from "react-transmit";
 import routes from "views/routes";
 import Html from "views/html";
+
+import inject from "server/helper/injectToMarkup";
 
 /**
  * Start Hapi server on port 8000.
@@ -39,6 +40,12 @@ server.ext("onPreResponse", (request, reply) => {
     let markup = React.renderToString(<Handler/>);
     let title = "React JS Isomorphic";
     let html = React.renderToStaticMarkup(<Html title={title} markup={markup} />)
+
+    const webserver = process.env.NODE_ENV === "production" ? "" : "//localhost:8080";
+
+    // console.log("before", html);
+    html = inject(html, [`${webserver}/dist/client.js`]);
+    // console.log("after", html);
     reply(html);
   })
 });

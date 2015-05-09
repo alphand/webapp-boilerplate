@@ -21,9 +21,11 @@ module.exports = {
     new webpack.optimize.UglifyJsPlugin()
   ],
   module:{
-    loaders:[
-      {include: /\.json$/, loaders: ["json-loader"]},
-      {include: /\.(js|jsx)$/, loaders: ["babel-loader?stage=1&optional=runtime"], exclude: /node_modules/},
+    loaders: [
+      {include: /\.json$/, loaders: ["json"]},
+      {include: /\.(js|jsx)$/, loaders: [ "babel?stage=1&optional=runtime"], exclude: /node_modules/},
+      {include: /\.(scss|sass)$/, loaders:["style", "css", "sass"], exclude: /node_modules/},
+      {include: /\.(css)$/, loaders:["style", "css"], exclude: /node_modules/}
     ]
   },
   resolve: {
@@ -32,7 +34,7 @@ module.exports = {
       "node_modules",
       "web_modules"
     ],
-    extensions: ["", ".json", ".js", ".jsx"]
+    extensions: ["", ".json", ".js", ".jsx", ".scss"]
   },
   node:{
     __dirname: true,

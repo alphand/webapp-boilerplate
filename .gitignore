@@ -2,10 +2,13 @@ node_modules
 logs
 tmp
 shared
+web/static/dist
 
 .bower_components
 
 .sublime-*
+*.sublime-*
 .tmp
 
 *.log
+
